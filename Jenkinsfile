@@ -67,7 +67,7 @@ pipeline {
             -Dsonar.projectKey=SimpleExpressExample:Test \
             -Dsonar.projectName=SimpleExpressExample \
             -Dsonar.projectVersion=0.0.${BUILD_NUMBER} \
-            -Dsonar.host.url=http://mysonarqube:9000 \
+            -Dsonar.host.url=http://localhost:9000 \
             -Dsonar.sources=${PROJECT_ROOT}/index.js,${PROJECT_ROOT}/models/modelString.js,${PROJECT_ROOT}/routes/home.js,${PROJECT_ROOT}/routes/string.js "
             // -Dsonar.tests=${PROJECT_ROOT}/test \
             // -Dsonar.javascript.lcov.reportPaths=${PROJECT_ROOT}/coverage/lcov.info
