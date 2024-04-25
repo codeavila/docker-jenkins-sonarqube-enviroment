@@ -48,7 +48,6 @@ pipeline {
             -Dsonar.host.url=http://mysonarqube:9000 \
             -Dsonar.sources=${PROJECT_ROOT}/index.js,${PROJECT_ROOT}/models/modelString.js,${PROJECT_ROOT}/routes/home.js,${PROJECT_ROOT}/routes/string.js "
         }
-        // No hay tiempo de espera para el Quality Gate ni interrupción del pipeline
       }
     }
     stage('Build docker-image') {
