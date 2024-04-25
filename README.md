@@ -9,7 +9,7 @@ Este repositorio contiene un archivo `docker-compose.yml` para desplegar Jenkins
 **Contenedor: jenkins_server_container**
 
 Jenkins es un servidor de automatización que se utiliza para la integración continua y la entrega continua. Este contenedor se configura con:
-- **Puertos**: 8080 para la interfaz web y 50000 para la conexión de agentes esclavos.
+- **Puertos**: 8081 para la interfaz web y 50000 para la conexión de agentes esclavos.
 - **Volumen**: `jenkins_data_volume` para almacenar los datos y configuraciones de Jenkins de manera persistente.
 - **Red**: `jenkins_sonarqube_network` para permitir la comunicación con SonarQube.
 
@@ -18,7 +18,7 @@ Jenkins es un servidor de automatización que se utiliza para la integración co
 **Contenedor: sonarqube_server_container**
 
 SonarQube es una plataforma para realizar análisis de calidad de código. Este contenedor se configura con:
-- **Puerto**: 9000 para la interfaz web.
+- **Puerto**: 9001 para la interfaz web.
 - **Volúmenes**:
   - Configuraciones, datos, registros y extensiones son almacenados en volúmenes locales para la persistencia.
 - **Red**: `jenkins_sonarqube_network` para interactuar con Jenkins.
@@ -40,9 +40,9 @@ Para ejecutar este entorno, asegúrate de tener Docker y Docker Compose instalad
 docker compose up -d
 ```
 
-Accede a Jenkins visitando http://localhost:8080 en tu navegador.
+Accede a Jenkins visitando http://localhost:8081 en tu navegador.
 
-Accede a SonarQube visitando http://localhost:9000 en tu navegador.
+Accede a SonarQube visitando http://localhost:9001 en tu navegador.
 
 Para detener y remover los contenedores, utiliza:
 

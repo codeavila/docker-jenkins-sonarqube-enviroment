@@ -13,7 +13,7 @@ apt-get -y install docker-ce
 usermod -a -G docker jenkins
 
 # Comprueba el usuario con el siguiente comando
-groups jenkins
+# groups jenkins
 
 # Ejecuta un Hola Mundo de Docker
-docker run hello-world
+# docker run hello-world
