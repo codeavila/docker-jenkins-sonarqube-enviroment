@@ -8,8 +8,8 @@ pipeline {
   environment {
     // General Variables for Pipeline
     PROJECT_ROOT = '.'
-    EMAIL_ADDRESS = 'cirexuab@gmail.com'  // Cambia esto por tu dirección de correo real si las notificaciones están configuradas
-    REGISTRY = 'cirexuab/docker-api-example-docker-api'
+    EMAIL_ADDRESS = 'correo@gmail.com'  // Cambia esto por tu dirección de correo real si las notificaciones están configuradas
+    REGISTRY = 'usuario/nombre-imagen-dockerhub' // Cambiar por tu usuario de dockerhub y tu nombre de imagen previamente registrada
   }
 
   stages {
