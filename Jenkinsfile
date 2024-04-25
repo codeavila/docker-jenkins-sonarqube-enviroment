@@ -45,8 +45,10 @@ pipeline {
             -Dsonar.projectKey=SimpleExpressExample:Test \
             -Dsonar.projectName=SimpleExpressExample \
             -Dsonar.projectVersion=0.0.${BUILD_NUMBER} \
-            -Dsonar.host.url=http://mysonarqube:9000 \
-            -Dsonar.sources=${PROJECT_ROOT}/index.js,${PROJECT_ROOT}/models/modelString.js,${PROJECT_ROOT}/routes/home.js,${PROJECT_ROOT}/routes/string.js "
+            -Dsonar.host.url=http://service-sonar:9001 \
+            -Dsonar.sources=. \
+            -Dsonar.inclusions=**/*.js \
+            -Dsonar.exclusions=**/node_modules/**,**/dist/** "
         }
       }
     }
