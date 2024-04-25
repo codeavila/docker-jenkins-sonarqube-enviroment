@@ -13,6 +13,14 @@ pipeline {
   }
 
   stages {
+    // Muestra de todas las variables de ambiente disponibles por Jenkins de manera nativa
+        stage('Print Env') {
+        steps {
+            script {
+                sh 'printenv'
+            }
+        }
+    }
     stage('Hello') {
       steps {
         // Primer paso es un saludo para verificar el correcto funcionamiento del pipeline
@@ -38,17 +46,20 @@ pipeline {
         scannerHome = tool 'sonar-scanner'
       }
       steps {
-        // "sonarqube" es el servidor configurado en "Configure System"
+        // "service-sonar" es el servidor configurado en "Configure System"
         withSonarQubeEnv('sonarqube') {
-          // Ejecutar el escáner SonarQube con los flags deseados
-          sh "${scannerHome}/bin/sonar-scanner \
-            -Dsonar.projectKey=SimpleExpressExample:Test \
-            -Dsonar.projectName=SimpleExpressExample \
-            -Dsonar.projectVersion=0.0.${BUILD_NUMBER} \
-            -Dsonar.host.url=http://service-sonar:9001 \
-            -Dsonar.sources=. \
-            -Dsonar.inclusions=**/*.js \
-            -Dsonar.exclusions=**/node_modules/**,**/dist/** "
+            // Ejecutar el escáner SonarQube con los flags deseados
+            sh """
+                ${scannerHome}/bin/sonar-scanner \\
+                -Dsonar.projectKey=Project:${env.BRANCH_NAME} \\
+                -Dsonar.projectName='Project - ${env.BRANCH_NAME}' \\
+                -Dsonar.projectVersion=0.0.${BUILD_NUMBER} \\
+                -Dsonar.host.url=http://service-sonar:9001 \\
+                -Dsonar.sources=. \\
+                -Dsonar.inclusions=**/*.js \\
+                -Dsonar.exclusions=**/node_modules/**,**/dist/** 
+            """
+            // TODO: Agregar los FLAGS de test del proyecto , aun pendiente.
         }
       }
     }
