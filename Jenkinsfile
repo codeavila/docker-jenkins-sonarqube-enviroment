@@ -57,9 +57,10 @@ pipeline {
                 -Dsonar.host.url=http://service-sonar:9001 \\
                 -Dsonar.sources=. \\
                 -Dsonar.inclusions=**/*.js \\
-                -Dsonar.exclusions=**/node_modules/**,**/dist/** 
+                -Dsonar.exclusions=**/node_modules/**,**/dist/** \\
+                -Dsonar.test.inclusions=**/*.test.js \\
+                -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
             """
-            // TODO: Agregar los FLAGS de test del proyecto , aun pendiente.
         }
       }
     }
