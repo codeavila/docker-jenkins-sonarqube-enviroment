@@ -40,6 +40,11 @@ pipeline {
         sh "cd ${PROJECT_ROOT}; npm install"
       }
     }
+    stage('TEST') {
+      steps {
+        sh "cd ${PROJECT_ROOT}; npm test"
+      }
+    }
     stage('scan-sonarqube') {
       environment {
         // Previamente definido en la "Configuración de Herramientas Globales" de Jenkins
