@@ -59,7 +59,7 @@ pipeline {
                 -Dsonar.projectKey=Project:${env.BRANCH_NAME} \\
                 -Dsonar.projectName='Project - ${env.BRANCH_NAME}' \\
                 -Dsonar.projectVersion=0.0.${BUILD_NUMBER} \\
-                -Dsonar.host.url=http://service-sonar:9001 \\
+                -Dsonar.host.url=http://service-sonar:9000 \\
                 -Dsonar.sources=. \\
                 -Dsonar.inclusions=**/*.js \\
                 -Dsonar.exclusions=**/node_modules/**,**/dist/** \\
